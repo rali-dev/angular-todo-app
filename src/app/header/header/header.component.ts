@@ -13,7 +13,7 @@ export class HeaderComponent {
   public readonly caption = input<string>('');
   public readonly onCaptionClick = output<string>();
 
-  public doUpdateCaption(event: Event): void {
+  public doUpdateCaption(): void {
     this.onCaptionClick.emit(this.caption());
   }
 

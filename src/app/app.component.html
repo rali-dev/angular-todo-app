@@ -1,4 +1,4 @@
-<div class="container mx-auto">
+<div class="container-fluid mx-auto">
   <div class="d-block py-4">
     <app-header
       class="header"
@@ -14,11 +14,22 @@
   <h1 class="text-primary py-2" [id]="id()" [attr.data-name]="name()">
     Hello, {{ name() }}
   </h1>
-  <button
-    class="btn btn-primary rounded"
-    (click)="handleClick()"
-    (mouseenter)="handleMouseEnter($event)"
-  >
+  <div class="d-block mb-4">
+     <button
+       class="d-block btn btn-primary rounded"
+       (click)="handleClick()"
+       (mouseenter)="handleMouseEnter($event)"
+     >
     Say Hello ...
   </button>
+  </div>
+
+     <div class="d-block">
+       <pre>{{ user() | json }}</pre>
+    </div>
+    <div class="d-block">
+       <button class="d-block btn btn-secondary rounded" (click)="handleSetUserData()">Set User Data</button>
+    </div>
+
+
 </div>
