@@ -1,15 +1,24 @@
-
 <div class="container mx-auto">
-  <input 
-     class="px-4 py-2" 
-     placeholder="enter your name..."
-     [(ngModel)]="name"
-     />
-  <h1 class="text-primary py-2" [id]="id" [attr.data-name]="name">Hello, {{ name }}</h1>
-  <button 
-     class="btn btn-primary rounded" 
-     (click)="handleClick()" 
-     (mouseenter)="handleMouseEnter($event)"   >
-     Say Hello ...
+  <div class="d-block py-4">
+    <app-header
+      class="header"
+      [caption]="caption()"
+      (onCaptionClick)="handleCaptionClick($event)"
+    ></app-header>
+  </div>
+  <input
+    class="px-4 py-2"
+    placeholder="enter your name..."
+    [(ngModel)]="name"
+  />
+  <h1 class="text-primary py-2" [id]="id()" [attr.data-name]="name()">
+    Hello, {{ name() }}
+  </h1>
+  <button
+    class="btn btn-primary rounded"
+    (click)="handleClick()"
+    (mouseenter)="handleMouseEnter($event)"
+  >
+    Say Hello ...
   </button>
 </div>

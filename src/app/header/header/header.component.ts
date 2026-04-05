@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,5 +10,11 @@ import { Component } from '@angular/core';
 
 })
 export class HeaderComponent {
+  public readonly caption = input<string>('');
+  public readonly onCaptionClick = output<string>();
+
+  public doUpdateCaption(event: Event): void {
+    this.onCaptionClick.emit(this.caption());
+  }
 
 }

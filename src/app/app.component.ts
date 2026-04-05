@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header/header.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule],
+  imports: [FormsModule, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   standalone: true
 })
 export class AppComponent {
-  public readonly name: string = 'Ali Rahimi';
-  public readonly id: string = 'el-1';
+  public readonly caption = signal<string>('Home');
+  public readonly name = signal<string>('Ali Rahimi');
+  public readonly id = signal<string>('el-1');
 
   public handleClick(): void {
     alert(`Hello, ${this.name}`);
@@ -19,5 +20,9 @@ export class AppComponent {
  
   public handleMouseEnter(e: MouseEvent): void {
     console.log('Mouse entered:', e);
+  }
+
+  public handleCaptionClick(e: string): void {
+    alert(`Caption clicked: ${e}`);
   }
 }
