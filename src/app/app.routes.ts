@@ -1,22 +1,26 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { TodoComponent } from './pages/todo/todo.component';
+import { MasterLayoutComponent } from './layouts/master-layout/master-layout.component.js';
 
 export const routes: Routes = [
   { 
     path: '', 
-    component: HomeComponent
+    component: MasterLayoutComponent,
+    loadChildren: () => import('./pages/home/home.routes').then(c => c.routes)
+  },
+  {
+    path: 'home',
+    loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
   },
   {
     path: 'todo',
-    component: TodoComponent
+    loadComponent: () => import('./pages/todo/todo.component').then(m => m.TodoComponent)
   },
   {
     path: 'todo/:id',
-    component: TodoComponent
+    loadComponent: () => import('./pages/todo/todo.component').then(m => m.TodoComponent)
   }, 
   {
     path: 'todo/:id/:name',
-    component: TodoComponent
+    loadComponent: () => import('./pages/todo/todo.component').then(m => m.TodoComponent)
   }
 ];

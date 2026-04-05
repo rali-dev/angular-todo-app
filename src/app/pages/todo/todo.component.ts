@@ -1,11 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-todo',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './todo.component.html',
-  standalone: true
 })
 export class TodoComponent implements OnInit {
 public readonly route: ActivatedRoute = inject(ActivatedRoute);
